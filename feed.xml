@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>the alpha dwellers</title>
+    <description>On the way to theoretical physics.
+</description>
+    <link>http://edwinst.github.io/ld-alpha//</link>
+    <atom:link href="http://edwinst.github.io/ld-alpha//feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Thu, 21 Apr 2016 22:17:58 +0200</pubDate>
+    <lastBuildDate>Thu, 21 Apr 2016 22:17:58 +0200</lastBuildDate>
+    <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Sandbox</title>
+        <description>&lt;p&gt;This is a \(\frac{x}{y}\) test.&lt;/p&gt;
+
+&lt;svg height=&quot;100&quot; width=&quot;300&quot;&gt;
+	&lt;foreignobject x=&quot;10&quot; y=&quot;50&quot; height=&quot;50&quot; width=&quot;200&quot;&gt;
+	    &lt;div&gt;Hello, SVG world \(e^{ix}\) with math!&lt;/div&gt;
+	&lt;/foreignobject&gt;
+&lt;/svg&gt;
+
+&lt;svg id=&quot;svgout&quot; width=&quot;100%&quot; height=&quot;100%&quot; viewbox=&quot;0 0 1000 500&quot; preserveaspectratio=&quot;xMidYMid meet&quot;&gt;
+    &lt;rect id=&quot;bkg1&quot; x=&quot;0&quot; y=&quot;0&quot; width=&quot;1000&quot; height=&quot;150&quot; fill=&quot;#448&quot; /&gt;
+    &lt;rect id=&quot;clip1&quot; x=&quot;0&quot; y=&quot;0&quot; width=&quot;1000&quot; height=&quot;150&quot; fill=&quot;#fff&quot; /&gt;
+    &lt;rect id=&quot;bkg2&quot; x=&quot;0&quot; y=&quot;160&quot; width=&quot;1000&quot; height=&quot;150&quot; fill=&quot;#448&quot; /&gt;
+    &lt;line id=&quot;mark-start&quot; x1=&quot;430&quot; x2=&quot;430&quot; y1=&quot;0&quot; y2=&quot;310&quot; stroke=&quot;#fff&quot; stroke-dasharray=&quot;5,5&quot; /&gt;
+    &lt;line id=&quot;markcar2&quot; x1=&quot;680&quot; x2=&quot;680&quot; y1=&quot;160&quot; y2=&quot;310&quot; stroke=&quot;#fff&quot; stroke-dasharray=&quot;5,5&quot; /&gt;
+    &lt;line id=&quot;mark-end&quot; x1=&quot;930&quot; x2=&quot;930&quot; y1=&quot;0&quot; y2=&quot;310&quot; stroke=&quot;#fff&quot; stroke-dasharray=&quot;5,5&quot; /&gt;
+&lt;/svg&gt;
+
+&lt;script&gt;
+    var snap = Snap(&quot;#svgout&quot;);
+    var ganim = snap.group();
+    var car_sx = 180;
+    var car_light_y = 51;
+    var car1;
+    var car2;
+    var car_light1;
+    var car_light2;
+    var light_circle1;
+    var light_circle2;
+    Snap.load(&quot;/svg/speed-of-light-cars/cars.svg&quot;,
+              function (frag) {
+                  car1 = frag.select(&quot;#car&quot;);
+                  ganim.append(car1);
+                  carlight1 = car1.select(&quot;.car-light&quot;);
+                  carlight1.attr(&#39;fill&#39;, &#39;#622&#39;);
+                  car2 = car1.clone();
+                  carlight2 = car2.select(&quot;.car-light&quot;);
+                  car1.transform(&#39;t250,30&#39;);
+                  car2.transform(&#39;t0,190&#39;);
+                  snap.click(animate_car);
+                  light_circle1 = snap.circle(250+car_sx,30+car_light_y, 20).attr({
+                      stroke: &#39;#fff&#39;,
+                      &#39;stroke-opacity&#39;: 0.7,
+                      strokeWidth: 5,
+                      fill: &#39;#fff&#39;,
+                      &#39;fill-opacity&#39;: 0.2,
+                      display: &#39;none&#39;,
+                      mask: snap.select(&#39;#clip1&#39;)
+                  });
+                  ganim.append(light_circle1);
+                  light_circle2 = light_circle1.clone();
+                  light_circle2.transform(&#39;t0,160&#39;);
+                  snap.select(&#39;#markcar2&#39;).attr(&#39;display&#39;, &#39;none&#39;);
+              });
+    function animate_car () {
+        car2.animate({ transform: &#39;t250,190&#39; }, 2500, mina.linear,
+                     function () {
+                        carlight1.attr(&#39;fill&#39;, &#39;#fff&#39;);
+                        carlight2.attr(&#39;fill&#39;, &#39;#fff&#39;);
+                        light_circle1.attr(&#39;display&#39;, &#39;&#39;);
+                        light_circle2.attr(&#39;display&#39;, &#39;&#39;);
+                        car2.animate({ transform: &#39;t500,190&#39; }, 2500, mina.linear,
+                                     function () {
+                                         snap.select(&#39;#markcar2&#39;).attr(&#39;display&#39;, &#39;&#39;);
+                        });
+                        light_circle1.animate({ r: 500 }, 2500, mina.linear);
+                        light_circle2.animate({ r: 500 }, 2500, mina.linear);
+                    });
+    }
+&lt;/script&gt;
+
+</description>
+        <pubDate>Wed, 13 Apr 2016 00:00:00 +0200</pubDate>
+        <link>http://edwinst.github.io/ld-alpha//2016/04/13/sandbox.html</link>
+        <guid isPermaLink="true">http://edwinst.github.io/ld-alpha//2016/04/13/sandbox.html</guid>
+        
+        
+      </item>
+    
+  </channel>
+</rss>
